@@ -1,0 +1,24 @@
+#
+# Dependencias de App en Local: MySQL
+#
+---
+version: '3.3'
+services:
+  db:
+    container_name: mysql-webshop
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'webshop'
+      MYSQL_USER: 'webshop'
+      MYSQL_PASSWORD: 'webshop'
+      MYSQL_ROOT_PASSWORD: 'admin'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
